@@ -6,6 +6,7 @@ Weather mobile App that allows the user to select and view the weather informati
 <br>
 Currently allows for location and weather information selection and calls Weatherapi to display information.
 <br>
+<br>
 Next Steps: Implementing the sign up and login functions and creating Firebase database to store user information.
 <br>
 <br>
