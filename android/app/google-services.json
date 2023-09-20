@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1003046428191",
+    "project_id": "better-weather-19a82",
+    "storage_bucket": "better-weather-19a82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003046428191:android:d1fd1b5960eed303c7ff2a",
+        "android_client_info": {
+          "package_name": "com.example.better_weather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003046428191-qkl022guvtucl27cttp9kof28g4dp8i2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0gavNtDbi9jtuiba_QhUCoCQwdh6Pu7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003046428191-qkl022guvtucl27cttp9kof28g4dp8i2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
