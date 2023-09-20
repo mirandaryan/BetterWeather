@@ -6,7 +6,7 @@ Weather mobile App that allows the user to select and view the weather informati
 Currently allows for location and weather information selection and calls Weatherapi to display information.
 Next Steps: Implementing the sign up and login functions and creating Firebase database to store user information.
 
-![bw_home](https://github.com/mirandaryan/BetterWeather/assets/89944794/ce628ac3-bb6a-440c-a95f-6c92965ec64b | width=100)
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/ce628ac3-bb6a-440c-a95f-6c92965ec64b" width="200" />
 ![bw_menu](https://github.com/mirandaryan/BetterWeather/assets/89944794/93e209ee-872a-4064-bf40-e27256d10f05 | width=100)
 ![bw_location](https://github.com/mirandaryan/BetterWeather/assets/89944794/0c624617-c509-46c2-8209-1953119fbb2b)
 ![bw_widget](https://github.com/mirandaryan/BetterWeather/assets/89944794/3d0306bf-9719-4817-9ffb-702cdeccc94d)
