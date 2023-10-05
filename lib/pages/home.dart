@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:better_weather/weather_card.dart';
 import 'package:better_weather/pages/grid_builder.dart';
+import '../services/auth.dart';
+
 enum Menu { location, add_widget }
 
 class MyHomePage extends StatefulWidget {
@@ -25,6 +27,7 @@ class MyHomePageState extends State<MyHomePage> {
   final String title = 'Better Weather';
   String route = '';
   List<String> userWidgets = <String>[];
+  final AuthService _auth = AuthService();
 
 
 
@@ -36,6 +39,16 @@ class MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Better Weather"),
+        actions: <Widget>[
+          TextButton(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            ),
+            onPressed: () async {
+              await _auth.signOut();
+            }, child: Text('logout'),
+          ),
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
