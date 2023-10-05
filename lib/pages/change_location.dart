@@ -3,7 +3,7 @@ import 'package:better_weather/services/weather_data.dart';
 import 'package:flutter/material.dart';
 
 class ChangeLocation extends StatefulWidget {
-  const ChangeLocation({Key key}) : super(key: key);
+  const ChangeLocation({Key? key}) : super(key: key);
   //list of all possible locations, add to database onPressed
 
   @override
@@ -16,15 +16,16 @@ class _ChangeLocationState extends State<ChangeLocation> {
   final int listLength = 3;
   final _cityTextController = TextEditingController();
 
-  void updateWeather(index) async {
-    WeatherData instance = WeatherData(location: locations[index], url: locations[index]);
-    await instance.getWeather();
-    Navigator.pushReplacementNamed(context, '/home', arguments: {
-      'temp': instance.temp,
-      'conditionIcon': instance.conditionIcon,
-      'location':instance.location
-    });
-  }
+
+  // void updateWeather(index) async {
+  //   WeatherData instance = WeatherData(location: locations[index], url: locations[index]);
+  //   await instance.getWeather();
+  //   Navigator.pushReplacementNamed(context, '/home', arguments: {
+  //     'temp': instance.temp,
+  //     'conditionIcon': instance.conditionIcon,
+  //     'location':instance.location
+  //   });
+  //}
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class _ChangeLocationState extends State<ChangeLocation> {
               child: Card(
                 child: ListTile(
                   onTap: () {
-                    updateWeather(index);
+                    //updateWeather(index);
                   },
                   title: Text(locations[index],
                 ),

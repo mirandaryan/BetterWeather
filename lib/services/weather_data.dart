@@ -6,21 +6,14 @@ import 'dart:convert';
 class WeatherData {
 
   String location;
-  String temp;
-  String condition;
-  String conditionIcon;
-  double windMPH;
-  String windDirection;
-  double precipitation;
-  int humidity;
-  int cloudCoverage;
-  double feelsLike;
-  double visibility;
-  double uv;
-  int epaIndex;
   String url;
+  String? temp;
+  String? conditionIcon;
+  String? condition;
+  String? windMPH;
+  String? humidity;
 
-  WeatherData({this.location, this.url});
+  WeatherData({required this.location, required this.url});
 
   Future<void> getWeather() async {
     //make the request
@@ -29,12 +22,15 @@ class WeatherData {
           'http://api.weatherapi.com/v1/current.json?key=1839160156f14892882223935231407&q=$url&aqi=no'));
       Map data = jsonDecode(response.body);
 
-      temp = data['current']['temp_f'].toString();
+      temp = data['current']['temp_f'];
       conditionIcon = data['current']['condition']['icon'];
+      condition = data['current']['condition']['text'];
+      windMPH = data['current']['wind_mph'].toString();
+      humidity = data['current']['humidity'].toString();
     }
     catch (e) {
       print('caught error: $e');
-      temp = 'could not get data';
+      //temp = 'could not get data';
     }
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AddWidget extends StatefulWidget {
-  const AddWidget({Key key}) : super(key: key);
+  const AddWidget({Key? key}) : super(key: key);
   //list of all possible locations, add to database onPressed
 
   @override
@@ -11,7 +11,7 @@ class AddWidget extends StatefulWidget {
 
 class _AddWidgetState extends State<AddWidget> {
   List<String> userWidgets = <String>[];
-  final List<String> widgets = <String>['Pressure', 'Humidity', 'Visibility'];
+  final List<String> widgets = <String>['Pressure', 'Wind Direction', 'Visibility'];
 
 
   @override

@@ -1,12 +1,12 @@
 //import 'package:better_weather/models/Widget.dart';
 
 
-class User {
+class MyUser {
 
   final String uid;
-  final String location;
-  final List<String> widgetList;
+  // final String location;
+  // final List<String> widgetList;
 
-  User({ this.uid, this.location,  this.widgetList });
+  MyUser({ required this.uid });
 
 }

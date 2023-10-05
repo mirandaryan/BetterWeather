@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class GridBuilder extends StatefulWidget {
 
 
-  const GridBuilder({Key key});
+  const GridBuilder({Key? key}) : super(key: key);
   @override
   GridBuilderState createState() => GridBuilderState();
 }
@@ -13,12 +13,17 @@ class GridBuilderState extends State<GridBuilder> {
   //List.generate(100000, (index) => {"id": index, "name": "Product $index"})
      // .toList();
 
-  List<String> userWidgets = ["temp"];
+  List<String> userWidgets = ["temp", "windMPH", "humidity"];
   Map data = {};
 
   @override
   Widget build(BuildContext context) {
-    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
+    data = {'temp': ModalRoute.of(context)!.settings.arguments    // 'conditionIcon': instance.conditionIcon,
+      // 'condition': instance.condition,
+      // 'location':instance.location,
+      // 'windMPH':instance.windMPH,
+      // 'humidity':instance.humidity
+    };
 
     //builds grid of widgets UI
     return Expanded(
@@ -27,7 +32,7 @@ class GridBuilderState extends State<GridBuilder> {
         margin: EdgeInsets.all(10.0),
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
+            maxCrossAxisExtent: 150,
             childAspectRatio: 1/ 1,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
@@ -87,7 +92,7 @@ class GridBuilderState extends State<GridBuilder> {
                   ListTile(
                     title: Center(child: Text(userWidgets.elementAt(index),
                       style: const TextStyle(
-                        fontSize: 30.0,
+                        fontSize: 20.0,
                       ),
                       ),
                     ),

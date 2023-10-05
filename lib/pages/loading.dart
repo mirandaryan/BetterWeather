@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:better_weather/services/weather_data.dart';
 
 class Loading extends StatefulWidget {
-  const Loading({Key key}) : super(key: key);
+  const Loading({Key? key}) : super(key: key);
 
   @override
   State<Loading> createState() => _LoadingState();
@@ -19,7 +19,10 @@ class _LoadingState extends State<Loading> {
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'temp': instance.temp,
       'conditionIcon': instance.conditionIcon,
-      'location':instance.location
+      'condition': instance.condition,
+      'location':instance.location,
+      'windMPH':instance.windMPH,
+      'humidity':instance.humidity
     });
   }
 

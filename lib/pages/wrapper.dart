@@ -1,4 +1,4 @@
-import 'package:better_weather/pages/loading.dart';
+import 'package:better_weather/pages/authenticate.dart';
 import 'package:flutter/material.dart';
 
 class Wrapper extends StatelessWidget {
@@ -6,7 +6,7 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // return either the Home or Authenticate widget
-    return Loading();
+    return Authenticate();
 
   }
 }

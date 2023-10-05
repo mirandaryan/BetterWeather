@@ -2,6 +2,6 @@ class Widget {
 
   final String name;
 
-  Widget({ this.name});
+  Widget({ required this.name});
 
 }

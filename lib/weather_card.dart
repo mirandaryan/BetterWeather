@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 
 
 class WeatherCard extends StatefulWidget {
-  const WeatherCard({Key key}) : super(key: key);
+  const WeatherCard({Key? key}) : super(key: key);
 
   @override
   State<WeatherCard> createState() => _WeatherCardState();
 }
 
 class _WeatherCardState extends State<WeatherCard> {
-  Map data = {};
+   Map data = {};
 
   @override
   Widget build(BuildContext context) {
-    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
+    data = {'temp': ModalRoute.of(context)!.settings.arguments    // 'conditionIcon': instance.conditionIcon,
+    // 'condition': instance.condition,
+    // 'location':instance.location,
+    // 'windMPH':instance.windMPH,
+    // 'humidity':instance.humidity
+    };
 
     //builds weather card UI
     return Container(
@@ -37,7 +42,7 @@ class _WeatherCardState extends State<WeatherCard> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           ListTile(
-            leading: Image(image: NetworkImage(data['conditionIcon']),),
+            leading: Image(image: NetworkImage(data['temp'])),
             title: Center(
               child: Text(
                 data['temp'],
@@ -47,9 +52,11 @@ class _WeatherCardState extends State<WeatherCard> {
               ),
             ),
             subtitle: Center(
-              child: Text(data['location'] + 'Rain', style: TextStyle(fontSize: 20.0),),
+              child: Text(data['location'] +' - ' + data['condition'], style: TextStyle(fontSize: 20.0),),
             ),
+
           ),
+
         ],
 
       ),

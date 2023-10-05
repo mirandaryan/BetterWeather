@@ -4,7 +4,7 @@ import 'package:better_weather/pages/grid_builder.dart';
 enum Menu { location, add_widget }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key}): super(key: key);
+  const MyHomePage({Key? key}): super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
