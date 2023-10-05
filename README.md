@@ -1,16 +1,28 @@
-# better_weather
+<h1>Better Weather Mobile App</h1>
+Currently in progress
 
-A new Flutter project.
+<h2>Description</h2>
+Weather mobile app that allows the user to select and view the weather information they prefer.
+<br>
+Currently allows for location and weather information selection and then calls Weatherapi to display information.
+<br>
+<br>
+Next Steps: Implementing the sign up and login functions and creating Firebase database to store user information.
+<br>
+<br>
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/ce628ac3-bb6a-440c-a95f-6c92965ec64b" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/93e209ee-872a-4064-bf40-e27256d10f05" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/0c624617-c509-46c2-8209-1953119fbb2b" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/3d0306bf-9719-4817-9ffb-702cdeccc94d" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/483fc160-4c2c-4e8e-a9e5-a108c110569f" width="150" />
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+<h2>Languages/Tools Used</h2>
 
-A few resources to get you started if this is your first Flutter project:
+- <b>Dart</b>
+- <b>Flutter</b>
+- <b>Firebase</b>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<h2>Environments Used </h2>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- <b>Android Studio</b>
