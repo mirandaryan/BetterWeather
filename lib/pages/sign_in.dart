@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/auth.dart';
 import '../shared/constants.dart';
+import '../shared/loading.dart';
 
 
 class SignIn extends StatefulWidget {
@@ -19,11 +20,12 @@ class SignInState  extends State<SignIn>{
   String error = '';
   String email = '';
   String password = '';
+  bool loading = false;
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
@@ -69,10 +71,14 @@ class SignInState  extends State<SignIn>{
                 ),
                 onPressed: () async {
                   if(_formKey.currentState!.validate()){
+                    setState(() {
+                      loading = true;
+                    });
                     dynamic result = await _auth.signInWithEmailAndPassword(email, password);
                     if(result == null) {
                       setState(() {
                         error = 'Could not sign in with those credentials';
+                        loading = false;
                       });
                     }
                   }

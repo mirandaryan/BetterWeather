@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:better_weather/pages/home.dart';
 import 'package:better_weather/pages/change_location.dart';
 import 'package:better_weather/pages/add_widget.dart';
-import 'package:better_weather/pages/loading.dart';
+import 'package:better_weather/shared/loading.dart';
 import 'package:better_weather/pages/wrapper.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +32,10 @@ class MyApp extends StatelessWidget {
       initialData: null,
       child: MaterialApp(
         home: Wrapper(),
+        routes: {'/home': (context) => MyHomePage(),
+          '/location': (context) => ChangeLocation(),
+          '/add_widget': (context) => AddWidget(),
+        }
       ),
     );
   }

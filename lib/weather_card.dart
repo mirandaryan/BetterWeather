@@ -9,16 +9,11 @@ class WeatherCard extends StatefulWidget {
 }
 
 class _WeatherCardState extends State<WeatherCard> {
-   Map data = {};
+  Map data= {};
 
   @override
   Widget build(BuildContext context) {
-    data = {'temp': ModalRoute.of(context)!.settings.arguments    // 'conditionIcon': instance.conditionIcon,
-    // 'condition': instance.condition,
-    // 'location':instance.location,
-    // 'windMPH':instance.windMPH,
-    // 'humidity':instance.humidity
-    };
+    data = ModalRoute.of(context)?.settings.arguments as Map;
 
     //builds weather card UI
     return Container(
@@ -42,7 +37,7 @@ class _WeatherCardState extends State<WeatherCard> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           ListTile(
-            leading: Image(image: NetworkImage(data['temp'])),
+            leading: Image(image: NetworkImage(data['conditionIcon'])),
             title: Center(
               child: Text(
                 data['temp'],
@@ -52,7 +47,7 @@ class _WeatherCardState extends State<WeatherCard> {
               ),
             ),
             subtitle: Center(
-              child: Text(data['location'] +' - ' + data['condition'], style: TextStyle(fontSize: 20.0),),
+              child: Text('location and condition', style: TextStyle(fontSize: 20.0),),
             ),
 
           ),

@@ -10,7 +10,7 @@ class AddWidget extends StatefulWidget {
 
 
 class _AddWidgetState extends State<AddWidget> {
-  List<String> userWidgets = <String>[];
+  List<String> userWidgets = <String>['pressure'];
   final List<String> widgets = <String>['Pressure', 'Wind Direction', 'Visibility'];
 
 
@@ -42,20 +42,37 @@ class _AddWidgetState extends State<AddWidget> {
                         TextButton(
                           child: const Text('Yes'),
                           onPressed: () {
-                            bool found =  userWidgets.contains(userWidgets.elementAt(index));
+                            bool found =  userWidgets.contains(widgets.elementAt(index));
                             if (found) {
-
+                              Navigator.pop(context);
                             }
-                              else {
+                            else if (!found) {
                                 userWidgets.add(widgets.elementAt(index));
-                                Navigator.pop(context,userWidgets
-                                );
+
+                                Navigator.pop(context);
                                 
                                 }
                             }
                             //Navigator.pop(context, userWidgets);
                         ),
+                        TextButton(
+                            child: const Text('Yes'),
+                            onPressed: () {
+                              bool found =  userWidgets.contains(widgets.elementAt(index));
+                              if (found) {
+                                Navigator.pop(context);
+                              }
+                              else if (!found) {
+                                userWidgets.add(widgets.elementAt(index));
+
+                                Navigator.pop(context);
+
+                              }
+                            }
+                          //Navigator.pop(context, userWidgets);
+                        ),
                       ],
+
                     );
                   },
                 );

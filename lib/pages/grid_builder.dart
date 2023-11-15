@@ -9,21 +9,13 @@ class GridBuilder extends StatefulWidget {
 }
 
 class GridBuilderState extends State<GridBuilder> {
-  //final List<Map> myProducts =
-  //List.generate(100000, (index) => {"id": index, "name": "Product $index"})
-     // .toList();
 
-  List<String> userWidgets = ["temp", "windMPH", "humidity"];
+  List<String> userWidgets = ["temp", "wind mph", "humidity"];
   Map data = {};
-
   @override
   Widget build(BuildContext context) {
-    data = {'temp': ModalRoute.of(context)!.settings.arguments    // 'conditionIcon': instance.conditionIcon,
-      // 'condition': instance.condition,
-      // 'location':instance.location,
-      // 'windMPH':instance.windMPH,
-      // 'humidity':instance.humidity
-    };
+    data = ModalRoute.of(context)?.settings.arguments as Map;
+
 
     //builds grid of widgets UI
     return Expanded(

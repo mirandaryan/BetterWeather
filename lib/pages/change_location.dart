@@ -15,17 +15,8 @@ class _ChangeLocationState extends State<ChangeLocation> {
   final List<String> locations = <String>['Chicago', 'Minneapolis', 'London'];
   final int listLength = 3;
   final _cityTextController = TextEditingController();
+  String location = '';
 
-
-  // void updateWeather(index) async {
-  //   WeatherData instance = WeatherData(location: locations[index], url: locations[index]);
-  //   await instance.getWeather();
-  //   Navigator.pushReplacementNamed(context, '/home', arguments: {
-  //     'temp': instance.temp,
-  //     'conditionIcon': instance.conditionIcon,
-  //     'location':instance.location
-  //   });
-  //}
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +32,35 @@ class _ChangeLocationState extends State<ChangeLocation> {
               child: Card(
                 child: ListTile(
                   onTap: () {
-                    //updateWeather(index);
+                    onTap: () {
+                      showDialog<void>(
+                        context: context,
+                        barrierDismissible: false, // user must tap button!
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Change Location'),
+                            content: SingleChildScrollView(
+                              child: ListBody(
+                                children: <Widget>[
+                                  Text('Would you like to change your loction to ${locations.elementAt(index)} ?'),
+                                ],
+                              ),
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                  child: const Text('Yes'),
+                                  onPressed: () {
+                                    location = locations.elementAt(index);
+                                  }
+                                //Navigator.pop(context, userWidgets);
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                      //add widget to userdata
+                      //return to home and reload
+                    };
                   },
                   title: Text(locations[index],
                 ),

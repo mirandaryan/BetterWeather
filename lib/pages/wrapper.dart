@@ -1,5 +1,6 @@
 import 'package:better_weather/pages/authenticate.dart';
 import 'package:better_weather/pages/home.dart';
+import 'package:better_weather/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,7 @@ class Wrapper extends StatelessWidget {
     if (user == null){
       return Authenticate();
     } else {
-      return MyHomePage();
+      return Loading();
     }
 
     // return either the Home or Authenticate widget
