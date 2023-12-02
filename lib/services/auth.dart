@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  List<String> widgetList = <String>['windMPH', 'humidity'];
+  List<String> widgetList = <String>['wind mph', 'humidity'];
 
   MyUser? _userFromFirebaseUser(User? user) {
     return user != null ? MyUser(uid: user.uid) : null;

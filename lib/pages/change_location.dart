@@ -49,7 +49,7 @@ class _ChangeLocationState extends State<ChangeLocation> {
                             actions: <Widget>[
                               TextButton(
                                   child: const Text('Yes'),
-                                  onPressed: () {
+                                  onPressed: () async{
                                     location = locations.elementAt(index);
                                   }
                                 //Navigator.pop(context, userWidgets);
