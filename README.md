@@ -1,5 +1,5 @@
 <h1>Better Weather Mobile App</h1>
-<h2>link<h2><use 'test2@email.com' and 'password' to sign in or create a new account
+
 <h2>Description</h2>
 Weather mobile app that allows the user to select and view the weather information they prefer.
 <br>
