@@ -26,9 +26,7 @@ class SignInState  extends State<SignIn>{
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
-      backgroundColor: Colors.brown[100],
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
         elevation: 0.0,
         title: Text('Sign in to Better Weather'),
         actions: <Widget>[
@@ -49,7 +47,7 @@ class SignInState  extends State<SignIn>{
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
-                decoration: textInputDecoration,
+                decoration: textInputDecoration.copyWith(hintText: 'email'),
                 validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val);

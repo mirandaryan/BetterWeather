@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:better_weather/services/database.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:better_weather/pages/home.dart';
 
@@ -20,22 +21,23 @@ class GridBuilder extends StatefulWidget {
 class GridBuilderState extends State<GridBuilder> {
 
   String location = '';
-  List<String> userWidgets = [];
-  Map data = {};
+  Map? data;
 
   @override
   Widget build(BuildContext context) {
-   data = ModalRoute.of(context)?.settings.arguments as Map;
-
-    MyUser? myUser = Provider.of<MyUser?>(context);
+   data = ModalRoute.of(context)?.settings.arguments as Map?;
+   MyUser? myUser = Provider.of<MyUser?>(context);
+   List<dynamic>? currentWidgetList;
 
     return StreamBuilder<UserData>(
         stream: DatabaseService(uid: myUser?.uid).userData,
         builder: (context,snapshot) {
           if (snapshot.hasData) {
             UserData? userData = snapshot.data;
+            currentWidgetList = userData?.widgetList;
             return Expanded(
               child: Container(
+                  height: 100,
                   padding: const EdgeInsets.all(10.0),
                   margin: EdgeInsets.all(10.0),
                   child: GridView.builder(
@@ -59,7 +61,7 @@ class GridBuilderState extends State<GridBuilder> {
                                     child: ListBody(
                                       children: <Widget>[
                                         Text(
-                                          'Would you like to delete the ${userData!.widgetList.remove(index)} widget?',
+                                          'Would you like to delete the ${userData?.widgetList.elementAt(index)} widget?',
                                           style: TextStyle(
                                               color: Colors.red[400]),
                                         ),
@@ -69,8 +71,13 @@ class GridBuilderState extends State<GridBuilder> {
                                   actions: <Widget>[
                                     TextButton(
                                       child: const Text('Yes'),
-                                      onPressed: () {
-                                        userWidgets.removeAt(index);
+                                      onPressed: () async{
+                                        currentWidgetList?.removeAt(index);
+                                        await DatabaseService(uid: myUser?.uid).updateUserData(
+                                          userData?.location ?? snapshot.data!.location,
+                                          currentWidgetList ?? snapshot.data!.widgetList
+                                        );
+
                                         Navigator.of(context).pop();
                                       },
                                     ),
@@ -79,6 +86,7 @@ class GridBuilderState extends State<GridBuilder> {
                               },
                             );
                           },
+
                           child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.white,
@@ -101,22 +109,27 @@ class GridBuilderState extends State<GridBuilder> {
                               children: <Widget>[
                                 ListTile(
                                   title: Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
                                     child: Text(
-                                      userData!.widgetList.elementAt(index),
+
+                                      userData?.widgetList.elementAt(index),
                                       style: const TextStyle(
-                                        fontSize: 20.0,
+                                        fontSize: 15.0,
+                                      ),
                                       ),
                                     ),
                                   ),
                                   subtitle: Center(
                                     child: Text(
-                                        data[userData.widgetList.elementAt(
-                                            index)]),
+                                        data?[userData?.widgetList.elementAt(index)]),
                                   ),
                                 ),
                               ],
 
                             ),
+
+
                           ),
 
 
@@ -126,7 +139,9 @@ class GridBuilderState extends State<GridBuilder> {
             );
           }
           else {
-            return Container(child: Text( snapshot.error.toString()));
+            return Container(
+
+            );
           }
         }
     );

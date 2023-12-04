@@ -18,7 +18,7 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   String temp = 'loading';
   String location = 'london';
-  late List<dynamic> widgetList;
+  List<String> userWidgetList = [''];
 
 
 
@@ -26,16 +26,23 @@ class _LoadingState extends State<Loading> {
     WeatherData instance = WeatherData(location: location, url: location);
 
     await instance.getWeather();
-    print('3');
-    print(instance.temp);
-    String current;
+
     Navigator.pushReplacementNamed(context, '/myhome', arguments: {
-      'location': instance.location,
-      'temp' : instance.temp,
+      'Location': instance.location,
+      'Temp' : instance.temp,
+      'Temp Celsius' : instance.temp,
       'conditionIcon' : instance.conditionIcon,
-      'condition' : instance.condition,
-      'wind mph' : instance.windMPH,
-      'humidity' : instance.humidity
+      'Condition' : instance.condition,
+      'Wind Speed' : instance.windMPH,
+      'Wind Direction' : instance.wind_dir,
+      'Humidity' : instance.humidity,
+      'Precipitation' : instance.precip_in,
+      'Pressure' : instance.pressure_in,
+      'Cloud Coverage' : instance.cloud,
+      'Feels-Like' : instance.feelslike_f,
+      'Visibility' : instance.vis_miles,
+      'UV Index' : instance.uv,
+
 
     });
   }
@@ -44,8 +51,7 @@ class _LoadingState extends State<Loading> {
   void initState() {
     super.initState();
     print('1');
-    setupWeatherData();
-    print('2');
+
   }
 
   @override
@@ -55,18 +61,14 @@ class _LoadingState extends State<Loading> {
     return StreamBuilder<UserData>(
         stream: DatabaseService(uid: myUser?.uid).userData,
     builder: (context,snapshot) {
-      if (snapshot.hasData) {
-        UserData? userData = snapshot.data;
-        location = userData!.location;
-        for (var i = 0; i <= userData.widgetList.length; i++) {
-          widgetList.add(userData.widgetList.elementAt(i));
-        }
-
+    if (snapshot.hasData) {
+    UserData? userData = snapshot.data;
+    location = userData!.location;
+    setupWeatherData();
         return Container(
-          color: Colors.brown[100],
           child: Center(
             child: SpinKitChasingDots(
-              color: Colors.brown,
+              color: Colors.blue,
               size: 50.0,
             ),
           ),

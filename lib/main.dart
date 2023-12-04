@@ -35,6 +35,8 @@ class MyApp extends StatelessWidget {
         routes: {'/myhome': (context) => MyHomePage(),
           '/location': (context) => ChangeLocation(),
           '/add_widget': (context) => AddWidget(),
+          '/loading': (context) => Loading(),
+          '/wrapper': (context) => Wrapper(),
         }
       ),
     );

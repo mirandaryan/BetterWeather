@@ -1,6 +1,10 @@
 import 'package:better_weather/services/database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:string_capitalize/string_capitalize.dart';
+
+
 
 import 'models/User.dart';
 
@@ -13,17 +17,17 @@ class WeatherCard extends StatefulWidget {
 }
 
 class _WeatherCardState extends State<WeatherCard> {
-  Map data= {};
+  Map? data= {};
 
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)?.settings.arguments as Map;
+    data = ModalRoute.of(context)?.settings.arguments as Map?;
     MyUser? myUser = Provider.of<MyUser?>(context);
 
     return StreamBuilder<UserData>(
         stream: DatabaseService(uid: myUser?.uid).userData,
     builder: (context,snapshot) {
-        if (snapshot.hasData) {
+        if (snapshot.hasData && data!.isNotEmpty) {
         UserData? userData = snapshot.data;
         return Container(
           height: 200.0,
@@ -46,17 +50,17 @@ class _WeatherCardState extends State<WeatherCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               ListTile(
-                leading: Image(image: NetworkImage(data['conditionIcon'])),
+                leading: Image(image: NetworkImage(data?['conditionIcon'])),
                 title: Center(
                   child: Text(
-                    data['temp'],
+                    data?['Temp'],
                     style: TextStyle(
                       fontSize: 80.0,
                     ),
                   ),
                 ),
                 subtitle: Center(
-                  child: Text(userData!.location, style: TextStyle(fontSize: 20.0),),
+                  child: Text(userData!.location.capitalizeEach()  + ' - ' +data!['Condition'].toString().capitalizeEach(), style: TextStyle(fontSize: 20.0),),
                 ),
 
               ),
@@ -67,7 +71,14 @@ class _WeatherCardState extends State<WeatherCard> {
 
               );
       }
-        else return Container();
+        else return Container(
+          child: Center(
+            child: SpinKitChasingDots(
+              color: Colors.blue,
+              size: 50.0,
+            ),
+          ),
+        );
         }
 
   );

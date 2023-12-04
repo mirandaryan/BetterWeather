@@ -8,7 +8,7 @@ class DatabaseService {
   final String? uid;
   DatabaseService({this.uid});
 
-  Future<void> updateUserData(String location, List<String> widgetList) async{
+  Future<void> updateUserData(String location, List<dynamic> widgetList) async{
     return await weatherInfoCollection.doc(uid).set({
       'location' : location,
       'widgetList': widgetList
