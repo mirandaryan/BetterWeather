@@ -1,13 +1,7 @@
 <h1>Better Weather Mobile App</h1>
-Currently in progress
-
+<h2>link<h2><use 'test2@email.com' and 'password' to sign in or create a new account
 <h2>Description</h2>
 Weather mobile app that allows the user to select and view the weather information they prefer.
-<br>
-Currently allows for location and weather information selection and then calls Weatherapi to display information.
-<br>
-<br>
-Next Steps: Implementing the sign up and login functions and creating Firebase database to store user information.
 <br>
 <br>
 <img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/ce628ac3-bb6a-440c-a95f-6c92965ec64b" width="150" />
