@@ -4,11 +4,24 @@
 Weather mobile app that allows the user to select and view the weather information they prefer.
 <br>
 <br>
-<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/ce628ac3-bb6a-440c-a95f-6c92965ec64b" width="150" />
-<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/93e209ee-872a-4064-bf40-e27256d10f05" width="150" />
-<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/0c624617-c509-46c2-8209-1953119fbb2b" width="150" />
-<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/3d0306bf-9719-4817-9ffb-702cdeccc94d" width="150" />
-<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/483fc160-4c2c-4e8e-a9e5-a108c110569f" width="150" />
+
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/9d106525-0bfe-4889-8f0c-977c71690b30" width="150" />
+<img src="(https://github.com/mirandaryan/BetterWeather/assets/89944794/4f6e45db-d8b5-4c04-a914-d9ab2e70a752" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/6dbf0791-82bf-4e08-84fc-c2a2e136dfd6" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/92592712-9dc4-46b9-b64a-3a1f8ae92c84" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/164a4860-05a1-4dae-b454-74ff304f03c4" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/a655f72a-7873-4127-afa6-72782b8fb851" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/8201883d-5003-45a2-b263-481d4b87b1a3" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/6448ac9f-18ac-444c-b3df-477689ac2933" width="150" />
+<img src="https://github.com/mirandaryan/BetterWeather/assets/89944794/e3a54cc3-2f9d-4670-b417-1015de96c47b" width="150" />
+
+
+
+
+
+
+
+
 
 
 <h2>Languages/Tools Used</h2>
